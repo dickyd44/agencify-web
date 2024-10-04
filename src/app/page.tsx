@@ -1,7 +1,9 @@
+import HomeSection from "@/components/organisms/home-section";
+
 export default function Home() {
   return (
-    <div>
-      <h1>Agencify</h1>
-    </div>
+    <main>
+      <HomeSection />
+    </main>
   );
 }

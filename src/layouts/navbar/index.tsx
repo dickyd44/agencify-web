@@ -131,8 +131,8 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white border-b shadow-lg">
-      <div className="container">
-        <div className="w-full h-24 px-5 md:px-10 md:py-6 flex items-center justify-between">
+      <div className="2xl:container">
+        <div className="w-full h-20 lg:h-24 px-5 md:px-10 md:py-6 flex items-center justify-between">
           {/* logo */}
           <a href="#">
             <Image
@@ -140,24 +140,12 @@ export default function Navbar() {
               alt="logo"
               width={500}
               height={500}
-              className="w-[13rem] h-11 object-contain"
+              className="w-[10rem] lg:w-[11rem] h-11 object-contain"
             />
           </a>
 
-          {/* hamburger menu */}
-          <div
-            onClick={handleOpen}
-            className={`${
-              isOpen ? "open" : ""
-            } flex flex-col items-center gap-[7px] cursor-pointer md:hidden`}
-          >
-            <span className="transition-all duration-500 ease-in-out h-[2px] w-5 bg-black rounded-full"></span>
-            <span className="transition-all duration-500 ease-in-out h-[2px] w-4 bg-black rounded-full"></span>
-            <span className="transition-all duration-500 ease-in-out h-[2px] w-5 bg-black rounded-full"></span>
-          </div>
-
           {/* menu */}
-          <div className="hidden md:flex items-center gap-4 lg:gap-8 text-black text-sm lg:text-base font-medium">
+          <div className="hidden xl:flex items-center gap-4 lg:gap-6 text-black text-sm lg:text-base font-medium">
             {LINK_NAVBAR.map((item, index) => (
               <div key={index} className="relative group">
                 <a
@@ -173,7 +161,7 @@ export default function Navbar() {
                   {item.name}
                   {item.dropdown && (
                     <span
-                      className={`ml-2 transform transition-transform ${
+                      className={`ml-1 transform transition-transform ${
                         openDropdownIndex === index ? "rotate-180" : ""
                       }`}
                     >
@@ -184,7 +172,7 @@ export default function Navbar() {
 
                 {/* Dropdown for specific items */}
                 {item.dropdown && openDropdownIndex === index && (
-                  <div className="absolute top-10 left-0 w-[20rem] bg-white border rounded-md shadow-lg p-4">
+                  <div className="absolute z-20 top-10 left-0 w-[20rem] bg-white border rounded-2xl shadow-lg p-4">
                     {item.dropdown.map((dropdownItem, i) => (
                       <a
                         href={dropdownItem.link}
@@ -223,16 +211,30 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* button */}
-          <div className="hidden md:flex items-center text-sm lg:text-base font-medium bg-pink rounded-full">
-            <a href="#" className="h-11 w-auto px-8 flex items-center gap-4">
-              <span className="text-white">
-                <ArrowRightIcon />
-              </span>
-              <p className="text-white text-sm cursor-pointer">
-                Demander un devis
-              </p>
-            </a>
+          <div className="flex items-center gap-6">
+            {/* button */}
+            <div className="hidden md:flex items-center text-sm lg:text-base font-medium bg-pink rounded-full">
+              <a href="#" className="h-11 w-auto px-8 flex items-center gap-4">
+                <span className="text-white">
+                  <ArrowRightIcon />
+                </span>
+                <p className="text-white text-sm cursor-pointer">
+                  Demander un devis
+                </p>
+              </a>
+            </div>
+
+            {/* hamburger menu */}
+            <div
+              onClick={handleOpen}
+              className={`${
+                isOpen ? "open" : ""
+              } flex flex-col items-center gap-[7px] cursor-pointer xl:hidden`}
+            >
+              <span className="transition-all duration-500 ease-in-out h-[2px] w-5 bg-pink rounded-full"></span>
+              <span className="transition-all duration-500 ease-in-out h-[2px] w-5 bg-pink rounded-full"></span>
+              <span className="transition-all duration-500 ease-in-out h-[2px] w-5 bg-pink rounded-full"></span>
+            </div>
           </div>
         </div>
 
