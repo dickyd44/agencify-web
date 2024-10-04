@@ -145,7 +145,7 @@ export default function Navbar() {
           </a>
 
           {/* menu */}
-          <div className="hidden xl:flex items-center gap-4 lg:gap-6 text-black text-sm lg:text-base font-medium">
+          <div className="hidden xl:flex items-center gap-4 lg:gap-7 text-black text-sm lg:text-base font-medium">
             {LINK_NAVBAR.map((item, index) => (
               <div key={index} className="relative group">
                 <a

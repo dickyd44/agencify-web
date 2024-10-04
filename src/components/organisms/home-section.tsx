@@ -50,24 +50,24 @@ export default function HomeSection() {
     <section className="container h-full flex items-center justify-center pt-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 place-items-center">
         <div>
-          <p className="text-xl text-pink font-medium mb-8">
+          <p className="text-xl text-pink font-medium mb-8 lg:mb-6 xl:mb-8">
             Transformez votre vision en réalité numérique !
           </p>
-          <h1 className="text-5xl font-bold leading-snug">
-            L&apos;agence digital dédié <br />
+          <h1 className="text-5xl xl:text-5xl lg:text-4xl font-bold !leading-[1.4] lg:!leading-[1.4]">
+            L&apos;agence digital dédié <br className="hidden lg:block" />
             aux entreprises
           </h1>
-          <p className="font-medium my-16">
+          <p className="font-medium my-16 xl:my-14 lg:my-12">
             AGENCIFY est une agence française spécialisée dans le Développement
             Web, qui identifie vos besoins pour vous accompagner dans la
             création de votre site sur-mesure et dans vos projets digitaux.
           </p>
 
-          <div className="flex lg:flex-row flex-col items-center gap-6">
-            <button className="rounded-full bg-pink px-11 py-2.5 text-center lg:text-sm 2xl:text-base text-white">
+          <div className="flex lg:flex-row flex-col items-center gap-3 lg:gap-6">
+            <button className="rounded-full bg-pink w-72 lg:w-60 xl:w-64 h-12 text-center lg:text-sm 2xl:text-base text-white">
               Recevoir nos offres
             </button>
-            <button className="border border-pink rounded-full px-11 py-2.5 text-center lg:text-sm 2xl:text-base text-pink">
+            <button className="border border-pink rounded-full w-72 lg:w-60 xl:w-64 h-12 text-center lg:text-sm 2xl:text-base text-pink">
               Prendre un rendez-vous
             </button>
           </div>
