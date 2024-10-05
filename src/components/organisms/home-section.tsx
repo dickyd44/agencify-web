@@ -1,8 +1,9 @@
 import Image from "next/image";
 import PhotoAgency from "@/assets/images/photo-agencify.png";
 import ProfileComment from "@/assets/images/profile-comment.jpg";
-import { PlayIcon } from "@/assets/icon-dropdown";
 import React from "react";
+import { PlayIcon } from "@/assets/icon-dropdown";
+import { ButtonDuo, ButtonDuoResponsive } from "../atoms/button";
 
 export default function HomeSection() {
   const generateStars = (numStars: number) => {
@@ -64,12 +65,14 @@ export default function HomeSection() {
           </p>
 
           <div className="hidden lg:flex lg:flex-row flex-col items-center gap-3 lg:gap-6">
-            <button className="rounded-full bg-pink w-72 lg:w-60 xl:w-64 h-12 text-center lg:text-sm 2xl:text-base text-white">
-              Recevoir nos offres
-            </button>
-            <button className="border border-pink rounded-full w-72 lg:w-60 xl:w-64 h-12 text-center lg:text-sm 2xl:text-base text-pink">
-              Prendre un rendez-vous
-            </button>
+            <ButtonDuo
+              text="Recevoir nos offres"
+              className="rounded-full bg-pink text-white"
+            />
+            <ButtonDuo
+              text=" Prendre un rendez-vous"
+              className="border border-pink text-pink rounded-full"
+            />
           </div>
         </div>
 
@@ -81,16 +84,18 @@ export default function HomeSection() {
             height={1000}
             className="object-cover relative w-full h-full"
           />
-          <div className="absolute bottom-0 w-full h-1/3 outline-0 bg-gradient-to-t from-white via-white to-transparent blur-none" />
+          <div className="absolute -bottom-1 w-full h-1/3 bg-gradient-to-t from-white via-white to-transparent blur-none" />
 
           {/* Button Responsive */}
           <div className="absolute inset-x-0 -bottom-40 z-10 lg:hidden flex lg:flex-row flex-col items-center gap-3 lg:gap-6 pb-14">
-            <button className="rounded-full shadow-2xl bg-pink w-64 h-12 text-center lg:text-sm 2xl:text-base text-white">
-              Recevoir nos offres
-            </button>
-            <button className="border-2 border-pink rounded-full shadow-2xl w-64 h-12 text-center lg:text-sm 2xl:text-base text-pink font-medium">
-              Prendre un rendez-vous
-            </button>
+            <ButtonDuoResponsive
+              text="Recevoir nos offres"
+              className="rounded-full shadow-2xl bg-pink text-white"
+            />
+            <ButtonDuoResponsive
+              text="Prendre un rendez-vous"
+              className="border-2 border-pink rounded-full shadow-2xl text-pink"
+            />
           </div>
 
           {/* Testimonial Section */}

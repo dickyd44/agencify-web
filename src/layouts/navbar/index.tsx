@@ -1,11 +1,7 @@
 "use client";
 import Image from "next/image";
 import logo from "@/assets/images/agencify-logo.png";
-import {
-  ArrowRightIcon,
-  ChevronDownIcon,
-  VerifiedIcon,
-} from "@/assets/icon-dropdown";
+import { ChevronDownIcon, VerifiedIcon } from "@/assets/icon-dropdown";
 import {
   Magento,
   Wordpress,
@@ -19,6 +15,7 @@ import {
 import { useEffect, useState } from "react";
 import ResponsiveNavbar from "./responsive";
 import Link from "next/link";
+import { ButtonSolo } from "@/components/atoms/button";
 
 // Data for the navbar and dropdown items
 const LINK_NAVBAR = [
@@ -134,9 +131,9 @@ export default function Navbar() {
   return (
     <nav className="bg-white border-b shadow-lg">
       <div className="2xl:container">
-        <div className="relative z-50 w-full h-full p-4 lg:px-8 flex items-center justify-between">
+        <div className="relative z-50 w-full h-full p-4 md:p-5 md:px-8 flex items-center justify-between">
           {/* logo */}
-          <a href="#">
+          <Link href="#">
             <Image
               src={logo}
               alt="logo"
@@ -144,7 +141,7 @@ export default function Navbar() {
               height={500}
               className="w-[10rem] lg:w-[11rem] h-11 object-contain"
             />
-          </a>
+          </Link>
 
           {/* menu */}
           <div className="hidden xl:flex items-center gap-4 lg:gap-7 text-black text-sm lg:text-base font-medium">
@@ -220,19 +217,10 @@ export default function Navbar() {
 
           <div className="flex items-center gap-6">
             {/* button */}
-            <div className="hidden md:flex items-center text-sm lg:text-base font-medium bg-pink rounded-full">
-              <Link
-                href="#"
-                className="h-11 w-auto px-8 flex items-center gap-4"
-              >
-                <span className="text-white">
-                  <ArrowRightIcon />
-                </span>
-                <p className="text-white text-sm cursor-pointer">
-                  Demander un devis
-                </p>
-              </Link>
-            </div>
+            <ButtonSolo
+              text="Demander un devis"
+              className="hidden md:flex bg-pink"
+            />
 
             {/* hamburger menu */}
             <div

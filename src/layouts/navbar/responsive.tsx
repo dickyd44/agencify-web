@@ -1,9 +1,5 @@
 "use client";
-import {
-  ArrowRightIcon,
-  ChevronDownIcon,
-  VerifiedIcon,
-} from "@/assets/icon-dropdown";
+import { ChevronDownIcon, VerifiedIcon } from "@/assets/icon-dropdown";
 import {
   Magento,
   Wordpress,
@@ -14,6 +10,7 @@ import {
   Development,
   Suivi,
 } from "@/assets/images";
+import { ButtonSoloResponsive } from "@/components/atoms/button";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -137,11 +134,11 @@ export default function ResponsiveNavbar({
     <div
       className={`${
         isOpen ? "translate-x-0" : "translate-x-full"
-      } absolute top-0 left-0 w-full h-full bg-white p-6 transition-transform duration-500 z-40`}
+      } absolute top-0 left-0 w-full md:h-[74rem] lg:h-full h-[59rem] bg-white p-5 md:p-6 transition-transform duration-500 z-40`}
     >
-      <div className="flex flex-col gap-6 pt-20">
+      <div className="flex flex-col gap-6 mt-16 md:mt-20">
         {LINK_NAVBAR.map((link, idx) => (
-          <div key={idx} className="font-medium border-b border-gray-200 pb-4">
+          <div key={idx} className="font-medium border-b border-gray-200 pb-5">
             {link.dropdown ? (
               <div className="text-left">
                 <button
@@ -149,7 +146,7 @@ export default function ResponsiveNavbar({
                     handleDropdown(idx);
                     setLinkActive(link.name);
                   }}
-                  className={`flex justify-between w-full relative hover:text-pink capitalize ${
+                  className={`mb-1.5 flex justify-between w-full relative hover:text-pink capitalize ${
                     linkActive === link.name ? "text-pink" : ""
                   }`}
                 >
@@ -164,7 +161,7 @@ export default function ResponsiveNavbar({
                 </button>
 
                 <div
-                  className={`mt-3 overflow-hidden transition-[max-height] duration-500 ease-in-out ${
+                  className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${
                     openDropdownIndex === idx && link.dropdown
                       ? "max-h-96"
                       : "max-h-0"
@@ -224,13 +221,10 @@ export default function ResponsiveNavbar({
         ))}
         {/* CTA Button */}
         <div className="mt-8 flex justify-center md:hidden">
-          <a
-            href="#"
-            className="flex items-center gap-4 px-6 py-3 bg-pink text-white rounded-full hover:bg-pink-700 transition"
-          >
-            <ArrowRightIcon />
-            Demander un devis
-          </a>
+          <ButtonSoloResponsive
+            text="Demander un devis"
+            className="bg-pink text-white"
+          />
         </div>
       </div>
     </div>
