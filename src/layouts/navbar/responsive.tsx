@@ -134,7 +134,7 @@ export default function ResponsiveNavbar({
     <div
       className={`${
         isOpen ? "translate-x-0" : "translate-x-full"
-      } absolute top-0 left-0 w-full md:h-[74rem] lg:h-full h-[59rem] bg-white p-5 md:p-6 transition-transform duration-500 z-40`}
+      } absolute top-0 left-0 w-full h-screen bg-white p-5 md:p-6 transition-transform duration-500 z-40`}
     >
       <div className="flex flex-col gap-6 mt-16 md:mt-20">
         {LINK_NAVBAR.map((link, idx) => (
@@ -220,7 +220,7 @@ export default function ResponsiveNavbar({
           </div>
         ))}
         {/* CTA Button */}
-        <div className="mt-8 flex justify-center md:hidden">
+        <div className="mt-3 mb-10 flex justify-center md:hidden">
           <ButtonSoloResponsive
             text="Demander un devis"
             className="bg-pink text-white"
