@@ -48,7 +48,7 @@ export default function HomeSection() {
   };
 
   return (
-    <section className="container min-h-screen flex items-start justify-center pt-14 lg:pt-20 xl:pt-16">
+    <section className="container min-h-full flex items-start justify-center pt-14 lg:pt-20 xl:pt-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 place-items-center">
         <div className="text-center lg:text-start">
           <p className="md:text-xl text-pink font-medium mb-8 lg:mb-6 xl:mb-8">
