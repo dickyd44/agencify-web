@@ -17,6 +17,7 @@ import {
   Suivi,
 } from "@/assets/images";
 import { useEffect, useState } from "react";
+import ResponsiveNavbar from "./responsive";
 
 // Data for the navbar and dropdown items
 const LINK_NAVBAR = [
@@ -104,7 +105,7 @@ export default function Navbar() {
   const handleOpen = () => setIsOpen((prev) => !prev);
 
   const handleScrollPos = () => {
-    const currentScrollPos = window.scrollY;
+    const currentScrollPos = window.scrollX;
 
     if (currentScrollPos > scrollPos) {
       setIsOpen(false);
@@ -132,7 +133,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white border-b shadow-lg">
       <div className="2xl:container">
-        <div className="w-full h-20 lg:h-24 px-5 md:px-10 md:py-6 flex items-center justify-between">
+        <div className="relative w-full z-50 h-20 lg:h-24 px-5 md:px-10 md:py-6 flex items-center justify-between">
           {/* logo */}
           <a href="#">
             <Image
@@ -171,13 +172,19 @@ export default function Navbar() {
                 </a>
 
                 {/* Dropdown for specific items */}
-                {item.dropdown && openDropdownIndex === index && (
-                  <div className="absolute z-20 top-10 left-0 w-[20rem] bg-white border rounded-2xl shadow-lg p-4">
-                    {item.dropdown.map((dropdownItem, i) => (
+                <div
+                  className={`absolute z-20 top-10 left-0 w-[20rem] bg-white border rounded-2xl shadow-lg p-4 transition-all duration-300 ease-in-out overflow-hidden ${
+                    openDropdownIndex === index
+                      ? "opacity-100 max-h-[350px] translate-y-0"
+                      : "opacity-0 max-h-0 translate-y-[-20px]"
+                  } `}
+                >
+                  {item.dropdown &&
+                    item.dropdown.map((dropdownItem, i) => (
                       <a
                         href={dropdownItem.link}
                         key={i}
-                        className="flex items-center gap-3 py-4 hover:bg-gray-100 rounded-md px-2"
+                        className="flex items-center gap-3 py-4 hover:bg-gray-100 rounded-xl px-2"
                       >
                         {/* Add your icon handling here */}
                         <div>
@@ -205,8 +212,7 @@ export default function Navbar() {
                         </div>
                       </a>
                     ))}
-                  </div>
-                )}
+                </div>
               </div>
             ))}
           </div>
@@ -239,7 +245,7 @@ export default function Navbar() {
         </div>
 
         {/* mobile menu could go here */}
-        {/* <NavbarDropdown isOpen={isOpen} /> */}
+        <ResponsiveNavbar isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </nav>
   );

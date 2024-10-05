@@ -5,3 +5,17 @@
 html {
   overflow-x: hidden;
 }
+
+/* navbar */
+.open span:nth-child(1) {
+  transform: rotate(45deg) translate(6.5px, 6.5px);
+}
+
+.open span:nth-child(2) {
+  width: 0;
+  opacity: 0;
+}
+
+.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6.5px, -6.5px);
+}

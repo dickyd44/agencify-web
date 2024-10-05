@@ -47,23 +47,23 @@ export default function HomeSection() {
   };
 
   return (
-    <section className="container h-full flex items-center justify-center pt-16">
+    <section className="container h-full flex items-center justify-center pt-12 lg:pt-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 place-items-center">
-        <div>
-          <p className="text-xl text-pink font-medium mb-8 lg:mb-6 xl:mb-8">
+        <div className="text-center lg:text-start">
+          <p className="md:text-xl text-pink font-medium mb-8 lg:mb-6 xl:mb-8">
             Transformez votre vision en réalité numérique !
           </p>
-          <h1 className="text-5xl xl:text-5xl lg:text-4xl font-bold !leading-[1.4] lg:!leading-[1.4]">
+          <h1 className="text-3xl xl:text-5xl md:text-4xl font-bold !leading-[1.4]">
             L&apos;agence digital dédié <br className="hidden lg:block" />
             aux entreprises
           </h1>
-          <p className="font-medium my-16 xl:my-14 lg:my-12">
+          <p className="font-medium my-16 xl:my-14 lg:my-12 hidden lg:block">
             AGENCIFY est une agence française spécialisée dans le Développement
             Web, qui identifie vos besoins pour vous accompagner dans la
             création de votre site sur-mesure et dans vos projets digitaux.
           </p>
 
-          <div className="flex lg:flex-row flex-col items-center gap-3 lg:gap-6">
+          <div className="hidden lg:flex lg:flex-row flex-col items-center gap-3 lg:gap-6">
             <button className="rounded-full bg-pink w-72 lg:w-60 xl:w-64 h-12 text-center lg:text-sm 2xl:text-base text-white">
               Recevoir nos offres
             </button>
@@ -77,11 +77,21 @@ export default function HomeSection() {
           <Image
             src={PhotoAgency}
             alt="agency-photo"
-            width={500}
-            height={500}
+            width={1000}
+            height={1000}
             className="object-cover relative w-full h-full"
           />
-          <div className="absolute bottom-0 w-full h-1/4 bg-gradient-to-t from-white via-white to-transparent blur-[0]" />
+          <div className="absolute bottom-0 w-full h-1/3 outline-0 bg-gradient-to-t from-white via-white to-transparent blur-none" />
+
+          {/* Button Responsive */}
+          <div className="absolute inset-x-0 -bottom-40 z-10 lg:hidden flex lg:flex-row flex-col items-center gap-3 lg:gap-6 pb-14">
+            <button className="rounded-full bg-pink w-64 h-12 text-center lg:text-sm 2xl:text-base text-white">
+              Recevoir nos offres
+            </button>
+            <button className="border border-pink rounded-full w-64 h-12 text-center lg:text-sm 2xl:text-base text-pink">
+              Prendre un rendez-vous
+            </button>
+          </div>
 
           {/* Testimonial Section */}
           <div className="relative hidden lg:flex items-center justify-center">
