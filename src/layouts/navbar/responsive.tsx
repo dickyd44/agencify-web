@@ -118,6 +118,12 @@ export default function ResponsiveNavbar({
   }, [pathname]);
 
   useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768 && isOpen) {
         setIsOpen(false);
