@@ -18,6 +18,7 @@ import {
 } from "@/assets/images";
 import { useEffect, useState } from "react";
 import ResponsiveNavbar from "./responsive";
+import Link from "next/link";
 
 // Data for the navbar and dropdown items
 const LINK_NAVBAR = [
@@ -149,7 +150,7 @@ export default function Navbar() {
           <div className="hidden xl:flex items-center gap-4 lg:gap-7 text-black text-sm lg:text-base font-medium">
             {LINK_NAVBAR.map((item, index) => (
               <div key={index} className="relative group">
-                <a
+                <Link
                   href={item.link}
                   onClick={() => {
                     handleDropdown(index);
@@ -169,19 +170,19 @@ export default function Navbar() {
                       <ChevronDownIcon />
                     </span>
                   )}
-                </a>
+                </Link>
 
                 {/* Dropdown for specific items */}
                 <div
                   className={`absolute z-20 top-10 left-0 w-[20rem] bg-white border rounded-2xl shadow-lg p-4 transition-all duration-300 ease-in-out overflow-hidden ${
-                    openDropdownIndex === index
+                    openDropdownIndex === index && item.dropdown
                       ? "opacity-100 max-h-[350px] translate-y-0"
                       : "opacity-0 max-h-0 translate-y-[-20px]"
                   } `}
                 >
                   {item.dropdown &&
                     item.dropdown.map((dropdownItem, i) => (
-                      <a
+                      <Link
                         href={dropdownItem.link}
                         key={i}
                         className="flex items-center gap-3 py-4 hover:bg-gray-100 rounded-xl px-2"
@@ -210,7 +211,7 @@ export default function Navbar() {
                             {dropdownItem.description}
                           </p>
                         </div>
-                      </a>
+                      </Link>
                     ))}
                 </div>
               </div>
@@ -220,14 +221,17 @@ export default function Navbar() {
           <div className="flex items-center gap-6">
             {/* button */}
             <div className="hidden md:flex items-center text-sm lg:text-base font-medium bg-pink rounded-full">
-              <a href="#" className="h-11 w-auto px-8 flex items-center gap-4">
+              <Link
+                href="#"
+                className="h-11 w-auto px-8 flex items-center gap-4"
+              >
                 <span className="text-white">
                   <ArrowRightIcon />
                 </span>
                 <p className="text-white text-sm cursor-pointer">
                   Demander un devis
                 </p>
-              </a>
+              </Link>
             </div>
 
             {/* hamburger menu */}

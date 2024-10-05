@@ -134,7 +134,7 @@ export default function ResponsiveNavbar({
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024 && isOpen) {
+      if (window.innerWidth >= 768 && isOpen) {
         setIsOpen(false);
       }
     };
@@ -153,7 +153,7 @@ export default function ResponsiveNavbar({
     >
       <div className="flex flex-col gap-6 pt-16">
         {LINK_NAVBAR.map((link, idx) => (
-          <div key={idx} className="border-b border-gray-200 pb-4">
+          <div key={idx} className="font-medium border-b border-gray-200 pb-4">
             {link.dropdown ? (
               <div className="text-left">
                 <button
@@ -168,7 +168,7 @@ export default function ResponsiveNavbar({
                   {link.name}
                   <span
                     className={`ml-1 transform transition-transform ${
-                      openDropdownIndex === idx ? "rotate-90" : ""
+                      openDropdownIndex === idx ? "-rotate-90" : ""
                     }`}
                   >
                     <ChevronDownIcon />
@@ -176,16 +176,18 @@ export default function ResponsiveNavbar({
                 </button>
 
                 <div
-                  className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${
-                    openDropdownIndex === idx ? "max-h-96" : "max-h-0"
+                  className={`mt-3 overflow-hidden transition-[max-height] duration-500 ease-in-out ${
+                    openDropdownIndex === idx && link.dropdown
+                      ? "max-h-96"
+                      : "max-h-0"
                   }`}
                   style={{
                     transitionTimingFunction:
                       "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                   }}
                 >
-                  <div className="mt-3">
-                    {link.dropdown.map((dropdownItem, idx) => (
+                  {link.dropdown &&
+                    link.dropdown.map((dropdownItem, idx) => (
                       <Link
                         key={idx}
                         href={dropdownItem.link}
@@ -214,12 +216,14 @@ export default function ResponsiveNavbar({
                         </div>
                       </Link>
                     ))}
-                  </div>
                 </div>
               </div>
             ) : (
               <Link
-                onClick={() => setLinkActive(link.name)}
+                onClick={() => {
+                  setLinkActive(link.name);
+                  handleDropdown(idx);
+                }}
                 href={link.link}
                 className={`capitalize hover:text-pink ${
                   linkActive === link.name ? "text-pink" : ""

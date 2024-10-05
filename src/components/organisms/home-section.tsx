@@ -85,10 +85,10 @@ export default function HomeSection() {
 
           {/* Button Responsive */}
           <div className="absolute inset-x-0 -bottom-40 z-10 lg:hidden flex lg:flex-row flex-col items-center gap-3 lg:gap-6 pb-14">
-            <button className="rounded-full bg-pink w-64 h-12 text-center lg:text-sm 2xl:text-base text-white">
+            <button className="rounded-full shadow-2xl bg-pink w-64 h-12 text-center lg:text-sm 2xl:text-base text-white">
               Recevoir nos offres
             </button>
-            <button className="border border-pink rounded-full w-64 h-12 text-center lg:text-sm 2xl:text-base text-pink">
+            <button className="border-2 border-pink rounded-full shadow-2xl w-64 h-12 text-center lg:text-sm 2xl:text-base text-pink font-medium">
               Prendre un rendez-vous
             </button>
           </div>
