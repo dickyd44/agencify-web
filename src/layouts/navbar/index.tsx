@@ -134,7 +134,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white border-b shadow-lg">
       <div className="2xl:container">
-        <div className="relative w-full z-50 h-20 lg:h-24 px-5 md:px-10 md:py-6 flex items-center justify-between">
+        <div className="relative z-50 w-full h-full p-4 lg:px-8 flex items-center justify-between">
           {/* logo */}
           <a href="#">
             <Image

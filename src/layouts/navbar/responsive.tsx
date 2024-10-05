@@ -121,18 +121,6 @@ export default function ResponsiveNavbar({
   }, [pathname]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "auto";
-    } else {
-      document.body.style.height = "100vh";
-    }
-
-    return () => {
-      document.body.style.height = "100vh";
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768 && isOpen) {
         setIsOpen(false);
@@ -149,9 +137,9 @@ export default function ResponsiveNavbar({
     <div
       className={`${
         isOpen ? "translate-x-0" : "translate-x-full"
-      } fixed top-0 left-0 w-full h-full bg-white p-6 transition-transform duration-500 z-40`}
+      } absolute top-0 left-0 w-full h-full bg-white p-6 transition-transform duration-500 z-40`}
     >
-      <div className="flex flex-col gap-6 pt-16">
+      <div className="flex flex-col gap-6 pt-20">
         {LINK_NAVBAR.map((link, idx) => (
           <div key={idx} className="font-medium border-b border-gray-200 pb-4">
             {link.dropdown ? (
