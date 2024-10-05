@@ -119,9 +119,15 @@ export default function ResponsiveNavbar({
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.display = "hidden";
+    } else {
+      document.body.style.display = "";
     }
-  }, [isOpen]);
+
+    return () => {
+      document.body.style.display = "";
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -140,7 +146,7 @@ export default function ResponsiveNavbar({
     <div
       className={`${
         isOpen ? "translate-x-0" : "translate-x-full"
-      } absolute top-0 left-0 w-full h-screen bg-white p-5 md:p-6 transition-transform duration-500 z-40`}
+      } absolute top-0 left-0 w-full h-full bg-white p-5 md:p-6 transition-transform duration-500 z-40`}
     >
       <div className="flex flex-col gap-6 mt-16 md:mt-20">
         {LINK_NAVBAR.map((link, idx) => (
