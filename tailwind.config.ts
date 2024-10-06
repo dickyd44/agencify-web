@@ -13,6 +13,7 @@ const config: Config = {
     extend: {
       colors: {
         pink: "#E75A7C",
+        pink_dark: "#ba344f",
       },
       container: {
         center: true,

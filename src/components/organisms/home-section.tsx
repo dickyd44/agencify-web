@@ -48,7 +48,7 @@ export default function HomeSection() {
   };
 
   return (
-    <section className="container min-h-full flex items-start justify-center pt-14 lg:pt-20 xl:pt-16">
+    <section className="container flex items-start justify-center pt-14 lg:pt-20 xl:pt-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 place-items-center">
         <div className="text-center lg:text-start">
           <p className="md:text-xl text-pink font-medium mb-8 lg:mb-6 xl:mb-8">
@@ -67,11 +67,11 @@ export default function HomeSection() {
           <div className="hidden lg:flex lg:flex-row flex-col items-center gap-3 lg:gap-6">
             <ButtonDuo
               text="Recevoir nos offres"
-              className="rounded-full bg-pink text-white"
+              className="rounded-full bg-pink text-white hover:bg-pink_dark transition-all duration-200"
             />
             <ButtonDuo
               text=" Prendre un rendez-vous"
-              className="border border-pink text-pink rounded-full"
+              className="border border-pink text-pink rounded-full hover:bg-pink hover:text-white transition-all duration-200"
             />
           </div>
         </div>
@@ -90,11 +90,11 @@ export default function HomeSection() {
           <div className="absolute inset-x-0 -bottom-40 z-10 lg:hidden flex lg:flex-row flex-col items-center gap-3 lg:gap-6 pb-14">
             <ButtonDuoResponsive
               text="Recevoir nos offres"
-              className="rounded-full shadow-2xl bg-pink text-white"
+              className="rounded-full shadow-2xl bg-pink text-white hover:bg-pink_dark transition-all duration-200"
             />
             <ButtonDuoResponsive
               text="Prendre un rendez-vous"
-              className="border-2 border-pink rounded-full shadow-2xl text-pink"
+              className="border-2 border-pink rounded-full shadow-2xl text-pink hover:bg-pink hover:text-white transition-all duration-200"
             />
           </div>
 

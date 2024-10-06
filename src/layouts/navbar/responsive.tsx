@@ -119,15 +119,15 @@ export default function ResponsiveNavbar({
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.display = "hidden";
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.display = "";
+      document.body.style.overflow = "auto";
     }
 
     return () => {
-      document.body.style.display = "";
+      document.body.style.overflow = "auto";
     };
-  }, []);
+  }, [isOpen]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -147,9 +147,9 @@ export default function ResponsiveNavbar({
       <div
         className={`${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } fixed top-0 left-0 w-full h-full bg-white p-5 md:p-6 transition-transform duration-500 `}
+        } overflow-y-auto absolute top-0 left-0 w-screen h-screen bg-white p-5 md:p-6 transition-transform duration-500 `}
       >
-        <div className="flex flex-col gap-6 mt-16 md:mt-20">
+        <div className="flex flex-col gap-6 pb-14">
           {LINK_NAVBAR.map((link, idx) => (
             <div
               key={idx}
@@ -239,7 +239,7 @@ export default function ResponsiveNavbar({
           <div className="mt-3 mb-10 flex justify-center md:hidden">
             <ButtonSoloResponsive
               text="Demander un devis"
-              className="bg-pink text-white"
+              className="bg-pink text-white hover:bg-pink_dark"
             />
           </div>
         </div>

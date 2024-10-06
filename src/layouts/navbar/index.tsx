@@ -103,7 +103,7 @@ export default function Navbar() {
   const handleOpen = () => setIsOpen((prev) => !prev);
 
   const handleScrollPos = () => {
-    const currentScrollPos = window.scrollX;
+    const currentScrollPos = window.scrollY;
 
     if (currentScrollPos > scrollPos) {
       setIsOpen(false);
@@ -219,7 +219,7 @@ export default function Navbar() {
             {/* button */}
             <ButtonSolo
               text="Demander un devis"
-              className="hidden md:flex bg-pink"
+              className="hidden md:flex bg-pink hover:bg-pink_dark transition-all duration-100"
             />
 
             {/* hamburger menu */}
