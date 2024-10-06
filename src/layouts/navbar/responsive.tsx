@@ -143,9 +143,9 @@ export default function ResponsiveNavbar({
       <div
         className={`${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } w-screen !h-screen absolute top-0 left-0 bg-white p-5 md:p-6 transition-transform duration-500 z-50`}
+        } w-screen h-screen fixed inset-0 z-40 bg-white p-5 md:p-6 transition-transform duration-500 overflow-y-auto`}
       >
-        <div className="flex flex-col gap-6 pb-14">
+        <div className="flex flex-col gap-6 py-16">
           {LINK_NAVBAR.map((link, idx) => (
             <div
               key={idx}
@@ -158,7 +158,7 @@ export default function ResponsiveNavbar({
                       handleDropdown(idx);
                       setLinkActive(link.name);
                     }}
-                    className={`mb-1 flex justify-between w-full relative hover:text-pink capitalize ${
+                    className={`pb-1 flex justify-between w-full relative hover:text-pink capitalize ${
                       linkActive === link.name ? "text-pink" : ""
                     }`}
                   >
