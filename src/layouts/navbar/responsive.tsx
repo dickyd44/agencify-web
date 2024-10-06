@@ -121,13 +121,9 @@ export default function ResponsiveNavbar({
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
     }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isOpen]);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -143,11 +139,11 @@ export default function ResponsiveNavbar({
   }, [isOpen, setIsOpen]);
 
   return (
-    <section className="relative z-40">
+    <section className="relative">
       <div
         className={`${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } overflow-y-auto absolute top-0 left-0 w-screen h-screen bg-white p-5 md:p-6 transition-transform duration-500 `}
+        } w-screen h-screen absolute top-0 left-0 bg-white p-5 md:p-6 transition-transform duration-500 z-50`}
       >
         <div className="flex flex-col gap-6 pb-14">
           {LINK_NAVBAR.map((link, idx) => (
