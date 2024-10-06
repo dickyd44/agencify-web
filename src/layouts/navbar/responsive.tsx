@@ -118,14 +118,6 @@ export default function ResponsiveNavbar({
   }, [pathname]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-  }, []);
-
-  useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768 && isOpen) {
         setIsOpen(false);
@@ -149,7 +141,7 @@ export default function ResponsiveNavbar({
           {LINK_NAVBAR.map((link, idx) => (
             <div
               key={idx}
-              className="font-medium border-b border-gray-200 pb-5"
+              className="font-medium border-b border-gray-200 pb-4"
             >
               {link.dropdown ? (
                 <div className="text-left">
@@ -158,7 +150,7 @@ export default function ResponsiveNavbar({
                       handleDropdown(idx);
                       setLinkActive(link.name);
                     }}
-                    className={`pb-1 flex justify-between w-full relative hover:text-pink capitalize ${
+                    className={`flex justify-between w-full relative hover:text-pink capitalize ${
                       linkActive === link.name ? "text-pink" : ""
                     }`}
                   >
@@ -188,7 +180,7 @@ export default function ResponsiveNavbar({
                         <Link
                           key={idx}
                           href={dropdownItem.link}
-                          className="flex items-center gap-4 p-4 hover:bg-gray-100 rounded-md"
+                          className="flex items-center gap-4 p-4 mt-2 hover:bg-gray-100 rounded-md"
                         >
                           <Image
                             src={dropdownItem.icon}

@@ -128,6 +128,12 @@ export default function Navbar() {
     setLinkActive(0);
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    }
+  }, []);
+
   return (
     <nav className="bg-white border-b shadow-lg">
       <div className="2xl:container">
