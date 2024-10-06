@@ -123,6 +123,17 @@ export default function ResponsiveNavbar({
         setIsOpen(false);
       }
     };
+
+    const preventScrollClose = (event: Event) => {
+      event.stopPropagation();
+    };
+
+    if (isOpen) {
+      window.addEventListener("scroll", preventScrollClose);
+    } else {
+      window.removeEventListener("scroll", preventScrollClose);
+    }
+
     window.addEventListener("resize", handleResize);
 
     return () => {
