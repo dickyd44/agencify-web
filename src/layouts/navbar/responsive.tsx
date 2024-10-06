@@ -143,7 +143,7 @@ export default function ResponsiveNavbar({
       <div
         className={`${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } w-screen h-screen absolute top-0 left-0 bg-white p-5 md:p-6 transition-transform duration-500 z-50`}
+        } w-screen h-[50rem] absolute top-0 left-0 bg-white p-5 md:p-6 transition-transform duration-500 z-50`}
       >
         <div className="flex flex-col gap-6 pb-14">
           {LINK_NAVBAR.map((link, idx) => (
