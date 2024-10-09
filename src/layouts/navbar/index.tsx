@@ -3,7 +3,7 @@ import Image from "next/image";
 import logo from "@/assets/images/agencify-logo.png";
 import { ChevronDownIcon, VerifiedIcon } from "@/assets/icon-dropdown";
 import { LINK_NAVBAR } from "@/constants/link-tab";
-import { useNavbarStore } from "@/utils/navbar/navbar-utils";
+import { useNavbarStore } from "@/utils/navbar";
 import ResponsiveNavbar from "./responsive";
 import Link from "next/link";
 import { ButtonSolo } from "@/components/atoms/button";
@@ -15,18 +15,16 @@ export default function Navbar() {
     setLinkActive,
     isOpen,
     setIsOpen,
-    logoRef,
-    navRef,
     handleOpen,
     handleDropdown,
   } = useNavbarStore();
 
   return (
-    <nav ref={navRef} className="bg-white border-b shadow-lg">
+    <nav className="bg-white border-b shadow-lg">
       <div className="2xl:container">
         <div className="relative z-40 w-full h-full p-4 md:p-5 md:px-8 flex items-center justify-between">
           {/* logo */}
-          <Link ref={logoRef} href="#">
+          <Link href="#">
             <Image
               src={logo}
               alt="logo"

@@ -1,11 +1,15 @@
+"use client";
 import Image from "next/image";
 import PhotoAgency from "@/assets/images/photo-agencify.png";
 import ProfileComment from "@/assets/images/profile-comment.jpg";
 import React from "react";
 import { PlayIcon } from "@/assets/icon-dropdown";
 import { ButtonDuo, ButtonDuoResponsive } from "../atoms/button";
+import { useMainStore } from "@/utils/home";
 
 export default function HomeSection() {
+  const { logoRef } = useMainStore();
+
   const generateStars = (numStars: number) => {
     const stars = [];
     for (let i = 0; i < numStars; i++) {
@@ -99,7 +103,10 @@ export default function HomeSection() {
           </div>
 
           {/* Testimonial Section */}
-          <div className="relative hidden lg:flex items-center justify-center">
+          <div
+            ref={logoRef}
+            className="relative hidden lg:flex items-center justify-center"
+          >
             <div className="absolute lg:bottom-[13rem] lg:-right-10 xl:bottom-[16rem] xl:-right-4  2xl:bottom-[18rem] 2xl:right-3 -z-10 w-full lg:w-auto">
               <div className="lg:p-3 xl:p-5 rounded-lg shadow-2xl bg-white lg:w-52 xl:w-60 2xl:w-64">
                 <p className="text-gray-600 lg:text-xs 2xl:text-sm">

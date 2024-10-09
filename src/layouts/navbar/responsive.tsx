@@ -3,7 +3,7 @@ import { ChevronDownIcon, VerifiedIcon } from "@/assets/icon-dropdown";
 import { ButtonSoloResponsive } from "@/components/atoms/button";
 import Image from "next/image";
 import Link from "next/link";
-import { useResponsiveStore } from "@/utils/responsive/responsive-utils";
+import { useResponsiveStore } from "@/utils/responsive";
 import { LINK_NAVBAR } from "@/constants/link-tab";
 
 interface ResponsiveNavbarProps {
