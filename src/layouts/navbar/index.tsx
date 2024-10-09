@@ -2,138 +2,31 @@
 import Image from "next/image";
 import logo from "@/assets/images/agencify-logo.png";
 import { ChevronDownIcon, VerifiedIcon } from "@/assets/icon-dropdown";
-import {
-  Magento,
-  Wordpress,
-  Laravel,
-  Woo,
-  Optimize,
-  Design,
-  Development,
-  Suivi,
-} from "@/assets/images";
-import { useEffect, useState } from "react";
+import { LINK_NAVBAR } from "@/constants/link-tab";
+import { useNavbarStore } from "@/utils/navbar/navbar-utils";
 import ResponsiveNavbar from "./responsive";
 import Link from "next/link";
 import { ButtonSolo } from "@/components/atoms/button";
 
-// Data for the navbar and dropdown items
-const LINK_NAVBAR = [
-  {
-    name: "accueil",
-    link: "#",
-  },
-  {
-    name: "notre expertise",
-    link: "#",
-    dropdown: [
-      {
-        name: "Magento",
-        description: "e CMS incontournable",
-        link: "#",
-        icon: Magento,
-      },
-      {
-        name: "Wordpress",
-        description: "Le CMS le plus connu",
-        link: "#",
-        icon: Wordpress,
-      },
-      {
-        name: "Laravel",
-        description: "Le Framework compétent",
-        link: "#",
-        icon: Laravel,
-      },
-      {
-        name: "WooCommerce",
-        description: "Création de commerce",
-        link: "#",
-        icon: Woo,
-      },
-    ],
-  },
-  {
-    name: "nos service",
-    link: "#",
-    dropdown: [
-      {
-        name: "Optimisation",
-        description: "Web",
-        link: "#",
-        icon: Optimize,
-        verified: true,
-      },
-      {
-        name: "Design graphique",
-        description: "Web",
-        link: "#",
-        icon: Design,
-      },
-      {
-        name: "Développement web",
-        description: "Web",
-        link: "#",
-        icon: Development,
-      },
-      {
-        name: "Suivi & support",
-        description: "Web",
-        link: "#",
-        icon: Suivi,
-      },
-    ],
-  },
-  {
-    name: "a propos",
-    link: "#",
-  },
-  {
-    name: "contact",
-    link: "#",
-  },
-];
-
 export default function Navbar() {
-  const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
-  const [linkActive, setLinkActive] = useState<number | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrollPos, setScrollPos] = useState(0);
-
-  const handleOpen = () => setIsOpen((prev) => !prev);
-
-  const handleScrollPos = () => {
-    const currentScrollPos = window.scrollY;
-
-    if (currentScrollPos > scrollPos) {
-      setIsOpen(false);
-    }
-
-    setScrollPos(currentScrollPos);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScrollPos);
-
-    return () => {
-      window.removeEventListener("scroll", handleScrollPos);
-    };
-  }, [scrollPos]);
-
-  const handleDropdown = (index: any) => {
-    setOpenDropdownIndex(openDropdownIndex === index ? null : index);
-  };
-
-  useEffect(() => {
-    setLinkActive(0);
-  }, []);
+  const {
+    openDropdownIndex,
+    linkActive,
+    setLinkActive,
+    isOpen,
+    setIsOpen,
+    logoRef,
+    navRef,
+    handleOpen,
+    handleDropdown,
+  } = useNavbarStore();
 
   return (
-    <nav className="bg-white border-b shadow-lg">
+    <nav ref={navRef} className="bg-white border-b shadow-lg">
       <div className="2xl:container">
-        <div className="relative z-50 w-full h-full p-4 md:p-5 md:px-8 flex items-center justify-between">
+        <div className="relative z-40 w-full h-full p-4 md:p-5 md:px-8 flex items-center justify-between">
           {/* logo */}
-          <Link href="#">
+          <Link ref={logoRef} href="#">
             <Image
               src={logo}
               alt="logo"

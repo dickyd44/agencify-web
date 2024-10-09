@@ -82,12 +82,12 @@ export default function HomeSection() {
             alt="agency-photo"
             width={1000}
             height={1000}
-            className="object-cover relative w-full h-full"
+            className="-z-10 object-cover relative w-full h-full mb-0.5"
           />
           <div className="absolute -bottom-1 w-full h-1/3 bg-gradient-to-t from-white via-white to-transparent blur-none" />
 
           {/* Button Responsive */}
-          <div className="absolute inset-x-0 -bottom-40 z-10 lg:hidden flex lg:flex-row flex-col items-center gap-3 lg:gap-6 pb-14">
+          <div className="absolute inset-x-0 -bottom-40 -z-10 lg:hidden flex lg:flex-row flex-col items-center gap-3 lg:gap-6 pb-10">
             <ButtonDuoResponsive
               text="Recevoir nos offres"
               className="rounded-full shadow-2xl bg-pink text-white hover:bg-pink_dark transition-all duration-200"
@@ -100,7 +100,7 @@ export default function HomeSection() {
 
           {/* Testimonial Section */}
           <div className="relative hidden lg:flex items-center justify-center">
-            <div className="absolute lg:bottom-[13rem] lg:-right-10 xl:bottom-[16rem] xl:-right-4  2xl:bottom-[18rem] 2xl:right-3 z-10 w-full lg:w-auto">
+            <div className="absolute lg:bottom-[13rem] lg:-right-10 xl:bottom-[16rem] xl:-right-4  2xl:bottom-[18rem] 2xl:right-3 -z-10 w-full lg:w-auto">
               <div className="lg:p-3 xl:p-5 rounded-lg shadow-2xl bg-white lg:w-52 xl:w-60 2xl:w-64">
                 <p className="text-gray-600 lg:text-xs 2xl:text-sm">
                   &quot;Une expérience parfaite pour obtenir mon site internet!

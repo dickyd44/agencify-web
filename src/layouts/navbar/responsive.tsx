@@ -1,152 +1,29 @@
 "use client";
 import { ChevronDownIcon, VerifiedIcon } from "@/assets/icon-dropdown";
-import {
-  Magento,
-  Wordpress,
-  Laravel,
-  Woo,
-  Optimize,
-  Design,
-  Development,
-  Suivi,
-} from "@/assets/images";
 import { ButtonSoloResponsive } from "@/components/atoms/button";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useResponsiveStore } from "@/utils/responsive/responsive-utils";
+import { LINK_NAVBAR } from "@/constants/link-tab";
 
-const LINK_NAVBAR = [
-  {
-    name: "accueil",
-    link: "#",
-  },
-  {
-    name: "notre expertise",
-    link: "#",
-    dropdown: [
-      {
-        name: "Magento",
-        description: "Le CMS incontournable",
-        link: "#",
-        icon: Magento,
-      },
-      {
-        name: "Wordpress",
-        description: "Le CMS le plus connu",
-        link: "#",
-        icon: Wordpress,
-      },
-      {
-        name: "Laravel",
-        description: "Le Framework compétent",
-        link: "#",
-        icon: Laravel,
-      },
-      {
-        name: "WooCommerce",
-        description: "Création de commerce",
-        link: "#",
-        icon: Woo,
-      },
-    ],
-  },
-  {
-    name: "nos services",
-    link: "#",
-    dropdown: [
-      {
-        name: "Optimisation",
-        description: "Web",
-        link: "#",
-        icon: Optimize,
-        verified: true,
-      },
-      {
-        name: "Design graphique",
-        description: "Web & print",
-        link: "#",
-        icon: Design,
-      },
-      {
-        name: "Développement web",
-        description: "Desktop & Mobile",
-        link: "#",
-        icon: Development,
-      },
-      {
-        name: "Suivi & support",
-        description: "Dans votre projet",
-        link: "#",
-        icon: Suivi,
-      },
-    ],
-  },
-  {
-    name: "a propos",
-    link: "#",
-  },
-  {
-    name: "contact",
-    link: "#",
-  },
-];
+interface ResponsiveNavbarProps {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}
 
 export default function ResponsiveNavbar({
   isOpen,
   setIsOpen,
-}: {
-  isOpen: boolean;
-  setIsOpen: (isOpen: boolean) => void;
-}) {
-  const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
-  const [linkActive, setLinkActive] = useState<string | null>(null);
-
-  const pathname = usePathname();
-
-  const handleDropdown = (index: any) => {
-    setOpenDropdownIndex(openDropdownIndex === index ? null : index);
-  };
-
-  useEffect(() => {
-    const activeLink = LINK_NAVBAR.find((link) => link.link === pathname);
-    if (activeLink) {
-      setLinkActive(activeLink.name);
-    } else {
-      setLinkActive(null);
-    }
-  }, [pathname]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768 && isOpen) {
-        setIsOpen(false);
-      }
-    };
-
-    const preventScrollClose = (event: Event) => {
-      event.stopPropagation();
-    };
-
-    if (isOpen) {
-      window.addEventListener("scroll", preventScrollClose);
-    } else {
-      window.removeEventListener("scroll", preventScrollClose);
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [isOpen, setIsOpen]);
+}: ResponsiveNavbarProps) {
+  const { openDropdownIndex, linkActive, setLinkActive, handleDropdown } =
+    useResponsiveStore({ isOpen, setIsOpen });
 
   return (
     <section className="relative">
       <div
         className={`${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } w-screen h-screen fixed inset-0 z-40 bg-white p-5 md:p-6 transition-transform duration-500 overflow-y-auto`}
+        } w-screen h-screen fixed inset-0 z-10 bg-white p-5 md:p-6 transition-transform duration-500 overflow-y-auto`}
       >
         <div className="flex flex-col gap-6 py-16">
           {LINK_NAVBAR.map((link, idx) => (
